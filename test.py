@@ -28,8 +28,8 @@ query ($id: Int, $page: Int, $perPage: Int , $genre_in:[String] , $tag_in:[Strin
 }
 '''
 
-genres = [u'Drama', u'Music', u'Romance', u'Slice of Life']
-tags = ['Musical' , 'Coming Of Age']
+genres = [u'Drama', u'Music', u'Romance', ]
+tags = ''
 variables = {
 
     #'type':'ANIME',
