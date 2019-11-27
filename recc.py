@@ -30,14 +30,11 @@ def result(user_ani_genre , user_ani_tags ):
 
     }
     '''
-    print("")
-    print("Genres: ")
+
     for i in range(0 , 2):
-        
+
         genres.append(user_ani_genre[i])
 
-    print("")
-    print("Tags: ")
     for i in range(0 , 3):
 
         tags.append(user_ani_tags[i]['name'])
