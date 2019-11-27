@@ -15,6 +15,16 @@ def main():
     user_ani_genre = findGenre(user_ani)
     user_ani_tags = findTags(user_ani)
 
+
+#    for i in range(0 , len(user_ani_tags)):
+#        if((user_ani_tags[i]['rank']) < 60):
+#            user_ani_tags.pop(i)
+#
+#        else:
+#            pass
+
+
+
     print("Anime title: " + user_ani)
     print("Genres: ")
     for i in range( 0 , len(user_ani_genre)):
@@ -26,12 +36,14 @@ def main():
 
     print("New Anime Reccomendations Loading:")
     new_rec = result(user_ani_genre , user_ani_tags)
-    time.sleep(1)
+
     print("")
     print("Animes similar to " + user_ani +" are:")
     print("")
-    for i in range(0 , len(new_rec)):
-        print(new_rec[i])
+    while(new_rec == user_ani or new_rec == None):
+
+        new_rec = result(user_ani_genre , user_ani_tags)
+    print(new_rec)
 
 
 main()
