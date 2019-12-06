@@ -5,8 +5,6 @@ import os
 import urllib
 
 
-
-
 def findGenre(user_ani):
 
     query = '''

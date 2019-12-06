@@ -7,23 +7,13 @@ import urllib
 from search import findGenre , findTags
 from recc import result
 def main():
-    user_ani = raw_input("Enter Anime title ")
+    user_ani = input("Enter Anime title ")
     print("")
     user_ani_genre = []
     user_ani_tags = []
 
     user_ani_genre = findGenre(user_ani)
     user_ani_tags = findTags(user_ani)
-
-
-#    for i in range(0 , len(user_ani_tags)):
-#        if((user_ani_tags[i]['rank']) < 60):
-#            user_ani_tags.pop(i)
-#
-#        else:
-#            pass
-
-
 
     print("Anime title: " + user_ani)
     print("Genres: ")
@@ -35,15 +25,21 @@ def main():
         print(user_ani_tags[i]['name'] + " " + "Rank: " + str(user_ani_tags[i]['rank']) + "/100")
 
     print("New Anime Reccomendations Loading:")
-    new_rec = result(user_ani_genre , user_ani_tags)
+    new_rec = result(user_ani_genre , user_ani_tags, user_ani)
 
     print("")
     print("Animes similar to " + user_ani +" are:")
     print("")
-    while(new_rec == user_ani or new_rec == None):
+    print(new_rec[0])
+    print("")
+    print("Related Genres: ")
+    for i in range(0 , len(new_rec[1])):
+        print(new_rec[1][i])
 
-        new_rec = result(user_ani_genre , user_ani_tags)
-    print(new_rec)
+    print("")
+    print("Related Tags: ")
+    for i in range(0 , len(new_rec[2])):
+        print(new_rec[2][i])
 
 
 main()
