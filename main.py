@@ -18,7 +18,7 @@ def search():
         user_ani = find(ani)
     ani_gen = user_ani[0]
     ani_tags = user_ani[1][1]
-    print(ani_tags)
+
 
     return render_template('index.html' ,ani_gen = ani_gen , ani_tags = ani_tags)
 
