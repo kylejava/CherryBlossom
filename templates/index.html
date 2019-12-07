@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cherry Blossom</title>
+  </head>
+  <body>
+    <h1>Cherry Blossom</h1>
+    <form action="/" method="post">
+      <input type="text" name="getAnime" value=" ">
+      <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+      {% for gen in ani_gen %}
+      <li>{{gen}}</li>
+      {% endfor %}
+    </ul>
+
+    <ul>
+      {% for tag in ani_tags %}
+      <li>{{tag}}</li>
+      {% endfor %}
+    </ul>
+
+  </body>
+</html>
