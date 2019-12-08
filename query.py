@@ -1,3 +1,14 @@
+queryForVerifying = '''
+query ($id: Int , $search: String) {
+  Media (id: $id, search: $search) {
+    id
+    title {
+      english
+    }
+  }
+}
+'''
+
 
 queryForFindingGenre = '''
 query ($id: Int , $search: String) {
