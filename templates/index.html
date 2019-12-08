@@ -2,26 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../styles/main.css">
     <title>Cherry Blossom</title>
   </head>
   <body>
-    <h1>Cherry Blossom</h1>
+    <div > <!-- navigation-->
+      <nav>
+        <a href = "/"  class = "navitems">home</a>
+      </nav>
+
+    </div>
+
+
+    <h1 id = "title">Cherry Blossom</h1>
+
+
+    <h2 class = "search">Enter an Anime Title</h2>
+
     <form action="/" method="post">
-      <input type="text" name="getAnime" value=" ">
-      <input type="submit" value="Submit">
+      <input  type="text" name="getAnime" value=" "class = "search">
+      <input  type="submit" value="search!">
     </form>
 
-    <ul>
-      {% for gen in ani_gen %}
-      <li>{{gen}}</li>
-      {% endfor %}
-    </ul>
-
-    <ul>
-      {% for tag in ani_tags %}
-      <li>{{tag}}</li>
-      {% endfor %}
-    </ul>
 
   </body>
 </html>
