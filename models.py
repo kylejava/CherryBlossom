@@ -4,6 +4,7 @@ import json
 import os
 import urllib
 from search import findGenre , findTags
+from query import * 
 def find(user_ani):
     user_ani_genre = []
     user_ani_tags = []

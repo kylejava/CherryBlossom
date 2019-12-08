@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template, flash, request
-from models import find
+from models import *
+from query import *
 app = Flask(__name__)
 
 
