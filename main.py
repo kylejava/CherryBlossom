@@ -13,7 +13,7 @@ app = Flask(__name__)
 def search():
     user_ani =[]
     if(request.method == 'POST'):
-        anime=request.form['anime']
+        anime=request.form.get('anime')
         return redirect(url_for('result', anime =anime))
     return render_template('index.html')
 
@@ -25,4 +25,4 @@ def result():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
