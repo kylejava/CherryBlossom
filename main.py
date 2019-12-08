@@ -13,13 +13,15 @@ app = Flask(__name__)
 def search():
     user_ani =[]
     if(request.method == 'POST'):
-        ani=request.form['getAnime']
-        user_ani = find(ani)
-    ani_gen = user_ani[0]
-    ani_tags = user_ani[1][1]
+        anime=request.form['anime']
+        return redirect(url_for('result', anime =anime))
+    return render_template('index.html')
 
 
-    return render_template('index.html' ,ani_gen = ani_gen , ani_tags = ani_tags)
+@app.route('/result' , methods=['GET', 'POST'])
+def result():
+    anime = request.args.get('anime' , None)
+    return render_template('result.html' , anime = anime)
 
 
 if __name__ == "__main__":
