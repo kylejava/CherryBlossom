@@ -11,9 +11,10 @@ app = Flask(__name__)
 # For render_template pass in name of template and any variables needed
 @app.route('/' , methods = ['GET' ,'POST'])
 def search():
-    user_ani =[]
+
     if(request.method == 'POST'):
-        anime=request.form.get('anime')
+        anime =request.form['anime']
+
         return redirect(url_for('result', anime =anime))
     return render_template('index.html')
 
