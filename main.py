@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Flask can respond differently to various HTTP methods
 
 
-chweese
+
 
 # For render_template pass in name of template and any variables needed
 @app.route('/' , methods = ['GET' ,'POST'])
