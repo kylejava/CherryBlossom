@@ -1,7 +1,7 @@
-
+import os
 from flask import Flask, render_template, flash, request
 from models import *
-from query import *
+
 app = Flask(__name__)
 
 
@@ -14,15 +14,16 @@ app = Flask(__name__)
 def search():
 
     if(request.method == 'POST'):
-        anime =request.form['anime']
-
+        anime =request.form.get('anime')
         return redirect(url_for('result', anime =anime))
+
     return render_template('index.html')
 
 
 @app.route('/result' , methods=['GET', 'POST'])
 def result():
     anime = request.args.get('anime' , None)
+
     return render_template('result.html' , anime = anime)
 
 

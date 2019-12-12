@@ -62,3 +62,5 @@ query ($id: Int ,  $genre_in:[String], $tag_in:[String] ) {
 
 }
 '''
+
+url = 'https://graphql.anilist.co'
