@@ -57,6 +57,7 @@ query ($id: Int ,  $genre_in:[String], $tag_in:[String] ) {
         genres
         tags{
             name
+            rank
         }
     }
 

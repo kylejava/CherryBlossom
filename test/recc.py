@@ -13,6 +13,8 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     genres = []
     tags = []
     new_ani = []
+    name = []
+    rank =[]
     query = '''
     query ($id: Int ,  $genre_in:[String], $tag_in:[String] ) {
         Media (id: $id, genre_in:$genre_in,, tag_in:$tag_in  )  {
@@ -25,6 +27,7 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
             genres
             tags{
                 name
+                rank
             }
         }
 
@@ -37,8 +40,8 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     for i in range(0 , 3):
         tags.append(user_ani_tags[i]['name'])
 
+    
     variables = {
-
         'type':'ANIME',
         'genre_in': genres,
        'tag_in':tags
@@ -49,9 +52,13 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     # Make the HTTP Api request
     response = requests.post(url, json={'query': query, 'variables': variables})
     data = response.json()
-    new_ani.append((data['data']['Media']['title']['english']))
-    new_ani.append(genres)
-    new_ani.append(tags)
+    new_ani = ((data['data']['Media']['title']['english']))
+    for i in range(0 , 3):
+        name.append(user_ani_tags[i]['name'])
+
+    for i in range(0 , 3):
+        rank.append(str(user_ani_tags[i]['rank']))
+
     #new_ani[0] = name
     #new_ani[1] = genres
     #new_ani[2] = tags
@@ -59,4 +66,14 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     while(new_ani[0] == user_ani or new_ani[0] == None):
         new_ani = result(user_ani_genre , user_ani_tags , user_ani)
 
-    return(new_ani)
+
+
+    mydict = {
+        'name': new_ani,
+        'genres': genres,
+        'tags': {
+            'name': name,
+            'rank':rank
+        }
+    }
+    return(mydict)

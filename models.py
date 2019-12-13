@@ -54,6 +54,8 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     random.shuffle(user_ani_genre)
     genres = []
     tags = []
+    name = []
+    rank =[]
     for i in range(0 , 2):
         genres.append(user_ani_genre[i])
 
@@ -68,11 +70,24 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
 
     response = requests.post(url, json={'query': queryForFindingNewAnime, 'variables': variables})
     data = response.json()
-    new_ani.append((data['data']['Media']['title']['english']))
-    new_ani.append(genres)
-    new_ani.append(tags)
+    new_ani = ((data['data']['Media']['title']['english']))
+
+    for i in range(0 , 3):
+        name.append(user_ani_tags[i]['name'])
+
+    for i in range(0 , 3):
+        rank.append(str(user_ani_tags[i]['rank']))
 
     while(new_ani[0] == user_ani or new_ani[0] == None):
         new_ani = result(user_ani_genre , user_ani_tags , user_ani)
 
-    return(new_ani)
+
+    newAni = {
+        'name': new_ani,
+        'genres': genres,
+        'tags': {
+            'name': name,
+            'rank':rank
+        }
+    }
+    return(newAni)
