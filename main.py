@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, flash, request
 from models import *
+from search import *   
 
 app = Flask(__name__)
 
@@ -14,8 +15,8 @@ app = Flask(__name__)
 def search():
 
     if(request.method == 'POST'):
-        anime =request.form.get('anime')
-        return redirect(url_for('result', anime =anime))
+        anime =request.form['anime']
+        #return redirect(url_for('result', anime =anime))
 
     return render_template('index.html')
 
@@ -23,7 +24,7 @@ def search():
 @app.route('/result' , methods=['GET', 'POST'])
 def result():
     anime = request.args.get('anime' , None)
-
+    print(anime)
     return render_template('result.html' , anime = anime)
 
 

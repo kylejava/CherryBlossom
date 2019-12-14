@@ -6,6 +6,7 @@ import urllib
 from search import findGenre , findTags
 from query import *
 
+
 def verify(user_ani):
     variables = {
         'search':user_ani
@@ -13,6 +14,8 @@ def verify(user_ani):
     response = requests.post(url, json={'query': queryForVerifying, 'variables': variables})
     data = response.json()
     return(data)
+
+
 
 def findGenre(user_ani):
     variables = {
