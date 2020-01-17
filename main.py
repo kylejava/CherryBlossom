@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, flash, request
 from models import *
-from search import *   
+from search import *
 
 app = Flask(__name__)
 
@@ -23,8 +23,12 @@ def search():
 
 @app.route('/result' , methods=['GET', 'POST'])
 def result():
-    anime = request.args.get('anime' , None)
-    print(anime)
+    user_anime = request.args.get('anime' , None)
+    ani = {}
+    ani = find(user_anime)
+    print(ani)
+
+    
     return render_template('result.html' , anime = anime)
 
 

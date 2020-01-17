@@ -3,6 +3,7 @@ import time
 import json
 import os
 import urllib
+import random
 from search import findGenre , findTags
 from query import *
 
@@ -81,7 +82,7 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     for i in range(0 , 3):
         rank.append(str(user_ani_tags[i]['rank']))
 
-    while(new_ani[0] == user_ani or new_ani[0] == None):
+    while(new_ani == user_ani or new_ani == None):
         new_ani = result(user_ani_genre , user_ani_tags , user_ani)
 
 
