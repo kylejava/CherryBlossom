@@ -27,8 +27,8 @@ def result():
     ani = {}
     ani = find(user_anime)
     print(ani)
+    anime = ani['name']
 
-    
     return render_template('result.html' , anime = anime)
 
 

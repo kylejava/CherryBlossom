@@ -50,7 +50,7 @@ def find(user_ani):
     user_ani_genre = findGenre(user_ani)
     user_ani_tags = findTags(user_ani)
     new_rec = result(user_ani_genre , user_ani_tags, user_ani)
-    return[new_rec]
+    return new_rec
 
 
 def result(user_ani_genre , user_ani_tags, user_ani ):
@@ -76,14 +76,20 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     data = response.json()
     new_ani = ((data['data']['Media']['title']['english']))
 
+    print(data)
+
+
+    while(new_ani == user_ani or new_ani == None):
+        new_ani = result(user_ani_genre , user_ani_tags , user_ani)
+
+
+
     for i in range(0 , 3):
         name.append(user_ani_tags[i]['name'])
 
     for i in range(0 , 3):
         rank.append(str(user_ani_tags[i]['rank']))
 
-    while(new_ani == user_ani or new_ani == None):
-        new_ani = result(user_ani_genre , user_ani_tags , user_ani)
 
 
     newAni = {
