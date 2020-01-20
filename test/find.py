@@ -7,7 +7,7 @@ import urllib
 from search import findGenre , findTags
 from recc import result
 def find():
-    user_ani = "Naruto"
+    user_ani = "Your Lie in April"
     print("")
     user_ani_genre = []
     user_ani_tags = []

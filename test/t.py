@@ -3,7 +3,7 @@ import json
 import os
 import urllib
 
-user_ani = "Your Lie in April"
+user_ani = "Naruto"
 
 url = 'https://graphql.anilist.co'
 
@@ -26,4 +26,9 @@ def verify(user_ani):
     return(data)
 
 y= verify(user_ani)
+if('errors' in y):
+    print("there is error")
+else:
+    print("there is no error")
+
 print(y)

@@ -76,8 +76,6 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     data = response.json()
     new_ani = ((data['data']['Media']['title']['english']))
 
-    print(data)
-
 
     while(new_ani == user_ani or new_ani == None):
         new_ani = result(user_ani_genre , user_ani_tags , user_ani)
