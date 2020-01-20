@@ -24,6 +24,7 @@ def search():
 @app.route('/result' , methods=['GET', 'POST'])
 def result():
     user_anime = request.args.get('anime' , None)
+    user_anime = verify(user_anime)
     ani = {}
     ani = find(user_anime)
     print(ani)
