@@ -18,8 +18,8 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     name = []
     rank =[]
     query = '''
-    query ($id: Int ,  $genre_in:[String], $tag_in:[String] ) {
-        Media (id: $id, genre_in:$genre_in,, tag_in:$tag_in  )  {
+    query ($id: Int ,  $genre_in:[String] ) {
+        Media (id: $id, genre_in:$genre_in )  {
             id
             title {
                 english
@@ -45,8 +45,8 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
 
     variables = {
         'type':'ANIME',
-        'genre_in': genres,
-       'tag_in':tags
+        'genre_in': genres
+
     }
 
     url = 'https://graphql.anilist.co'

@@ -7,7 +7,7 @@ import urllib
 from search import findGenre , findTags
 from recc import result
 def find():
-    user_ani = "Your Lie in April"
+    user_ani = "Naruto"
     print("")
     user_ani_genre = []
     user_ani_tags = []
@@ -31,6 +31,7 @@ def find():
     print("")
     print("Animes similar to " + user_ani +" are:")
     print("")
+    print(new_rec['name'])
     #print(new_rec['name'])
     for i in range(0 , len(new_rec['tags']['name'])):
         print("Name: " + new_rec['tags']['name'][i] + " Rank: " + str(new_rec['tags']['rank'][i]) +"/100")
