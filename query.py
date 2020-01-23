@@ -28,8 +28,8 @@ query ($id: Int , $search: String) {
 '''
 
 queryForFindingTag = '''
-query ($id: Int , $search: String) { # Define which variables will be used in the query (id)
-  Media (id: $id, search: $search) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+query ($id: Int , $search: String) {
+  Media (id: $id, search: $search) {
     id
     title {
 

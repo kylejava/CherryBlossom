@@ -4,7 +4,7 @@ import json
 import os
 import urllib
 import random
-from search import findGenre , findTags
+
 from query import *
 
 
