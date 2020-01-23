@@ -47,6 +47,7 @@ def findTags(user_ani):
 def find(user_ani):
     user_ani_genre = []
     user_ani_tags = []
+    new_rec = {}
     user_ani_genre = findGenre(user_ani)
     user_ani_tags = findTags(user_ani)
     new_rec = result(user_ani_genre , user_ani_tags, user_ani)
@@ -74,7 +75,9 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
 
     response = requests.post(url, json={'query': queryForFindingNewAnime, 'variables': variables})
     data = response.json()
+    print(data)
     new_ani = ((data['data']['Media']['title']['english']))
+
 
 
     while(new_ani == user_ani or new_ani == None):
