@@ -64,7 +64,7 @@ def result(user_ani_genre , user_ani_tags, user_ani ):
     for i in range(0 , 2):
         genres.append(user_ani_genre[i])
 
-    for i in range(0 , 3):
+    for i in range(0 , 2):
         tags.append(user_ani_tags[i]['name'])
     variables = {
 
